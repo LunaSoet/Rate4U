@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate4U</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .top-bar {
+            background-color: #0066FF;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .top-bar .left {
+            display: flex;
+            align-items: center;
+        }
+		.top-bar .right img {
+    width: 20px; /* Set the desired width */
+    height: 20px; /* Set the desired height */
+    margin-left: 10px; /* Maintain spacing between icons */
+}
+        .top-bar a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .header img {
+            height: 50px; 
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .main-image {
+            position: relative; 
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .main-image img {
+            max-width: 100%;
+            height: 1000px; 
+            object-fit: cover; 
+        }
+        .text-overlay {
+            position: absolute; 
+            top: 50%; 
+            left: 80%; 
+            transform: translate(-50%, -50%); 
+            background: rgba(0, 0, 255, 0.7); 
+            color: white;
+            padding: 30px; 
+            width: 350px; 
+            height: 400px; 
+            text-align: center;
+            border-radius: 8px; 
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .container .header {
+            margin-bottom: 40px;
+        }
+        .container .header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .container .header p {
+            font-size: 16px;
+            color: #666;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .service {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .service h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .service p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .service button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .service button:hover {
+            background-color: #0056b3;
+        }
+        .expertise-section {
+            background-color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .expertise-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .expertise-image {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .expertise-section h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .expertise-section p {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+        .expertise-section img {
+            max-width: 100%;
+            height: auto;
+            width: 300px; 
+            height: 300px; 
+            object-fit: cover; 
+        }
+        .testimonial-section {
+            padding: 20px;
+        }
+        .testimonial {
+            margin-bottom: 20px;
+        }
+        .testimonial img {
+            max-width: 100px;
+            border-radius: 50%;
+        }
+        .contact-us-today {
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px;
+            width: 80%;
+        }
+        .contact-us-today img {
+            width: 30%;
+            height: auto;
+        }
+        .contact-us-today .form-container {
+            padding: 20px;
+            width: 70%;
+        }
+        .contact-us-today .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .contact-us-today .form-container input, .contact-us-today .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-us-today .form-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-us-today .form-container button:hover {
+            background-color: #0056b3; 
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .header img {
+            height: 50px;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .news-articles {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .news-article {
+            position: relative;
+            width: 300px;
+            margin: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .news-article img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .news-article-content {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s;
+            transform: translateY(100%);
+        }
+        .news-article:hover .news-article-content {
+            transform: translateY(0);
+        }
+        .news-article-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .news-article-description,
+        .news-article-date {
+            font-size: 14px;
+        }
+        .footer {
+            position: relative;
+            background-color: #333; 
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white; 
+        }
+        .footer-description {
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #f9f9f9; 
+        }
+        .footer-section {
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+            margin: 0 10px;
+        }
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: white; 
+        }
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: #f9f9f9; 
+        }
+        .footer-newsletter input[type="email"] {
+            padding: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+        }
+        .footer-newsletter button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .footer-social-icons img {
+            width: 20px;
+            margin: 0 5px;
+        }
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head >
+
+<body>
+    <div class="top-bar">
+        <div class="left">
+            Call Us : +27 82 703 5044
+        </div>
+        <div class="right">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="facebook">
+			<img src="data:image/png;base64,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" alt="instagram">
+            <img src="data:image/png;base64,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" alt="Twitter">
+            <img src="data:image/png;base64,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" alt="Linkedin">
+        </div>
+    </div>
+
+    <div class="header">
+        <img src="https://rates4u.co.za/wp-content/uploads/2024/07/cropped-New_logo_Png_circle_002-9505649-988x988.webp" alt="Logo">
+        <div class="nav">
+            <a href="Rate4U.html">HOME</a>
+            <a href="Rate4Ublog.html">BLOG</a>
+            <a href="Rate4Ucontact.html">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="main-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/50f2c70ee4b0d70ab5fe596e/1400401960472-ZD7Q5TC19UE1PM760Q7D/_DSC0011.jpg" alt="Background Image">
+        <div class="text-overlay">
+            <h1>STREAMLINED MUNICIPAL ACCOUNT MANAGEMENT IN JOHANNESBURG</h1>
+            <p> At Rates4U, we provide expert assistance with a wide range of municipal account services for homeowners, businesses, and property managers in Johannesburg.</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Comprehensive Solutions for Property Rates, Rebates, and Municipal Services</h1>
+            <p>Our team of specialists can help you with:</p>
+        </div>
+
+        <div class="services">
+            <div class="service">
+                <h2>OPEN New Municipal Accounts</h2>
+                <p>Free standing homes<br>Sectional title properties<br>Commercial and industrial businesses</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>CONVERT to Prepaid Electricity</h2>
+                <p>Seamless transition to prepaid metering for cost savings.</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>UPDATE Account Details </h2>
+                <p>Name changes<br >VAT registration<br>Postal and physical address updates </p>
+                <button >CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>PAYMENT Plan Negotiations</h2>
+                <p>Work with the municipality to set up manageable payment plans</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>REFUND Applications</h2>
+                <p>Assist with obtaining refunds for overpaid municipal charges</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>ACCOUNT Transfers</h2>
+                <p>Facilitate the transfer of funds between municipal accounts </p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>NEW Meter Installations</h2>
+                <p>Facilitate the transfer of funds between municipal accounts .</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>VALUATION Assistance</h2>
+                <p>Support with property valuations and category changes.</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>ACCOUNT Investigation</h2>
+                <p>Resolve billing discrepancies and incorrect charges.</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>CLEARANCE Certificate Applications</h2>
+                <p>Work with the municipality to set up manageable payment plans.</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>COMPANY Name Changes</h2>
+                <p>Update municipal accounts for business name changes.</p>
+                <button>CONTACT US</button>
+            </div>
+
+            <div class="service">
+                <h2>PENSIONERS Rebate Assistance</h2>
+                <p>Secure the maximum property rates rebate for eligible pensioners</ p>
+                <button>CONTACT US</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="expertise-section">
+        <div class="expertise-text">
+            <h1>Our Expertise and Credentials</h1>
+            <p>We are the link between the Consumer and the Municipal offices (City of Johannesburg). Our clients vary from Developers, Attorneys, Property Owners, Body Corporates, Home Owner Associations and Industrial Businesses. We help you avoid delays in resolving queries.</p>
+            <p>Our success rate has continued to motivate us for over 17 years, we are still just as motivated to assist our Clients. Numerous large Companies utilise our services, but we are just as passionate about the ordinary home owner who requires our help.</p>
+        </div>
+
+        <div class="expertise-image">
+            <img src="https://rates4u.co.za/wp-content/uploads/2024/07/241142077_4493940810649611_3875782050878391601_n-1024x1024.jpg" alt="Expertise Image">
+        </div>
+    </div>
+
+    <div class="testimonial-section">
+        <h2>What <strong>OUR CUSTOMERS</strong> Say</h2>
+
+        <div class="testimonial">
+            <img src="https://rates4u.co.za/wp-content/uploads/2024/07/275771835_5136941749682844_5291419841077434700_n-1024x1024.jpg" alt="Debbie">
+            <h3 >Debbie House Executive</h3>
+            <h4>Executive</h4>
+            <div class="stars">⭐⭐⭐✩✩</div>
+            <p>"Rates4u came in and did it very quickly and fast. Sharmane you are an absolute wonder. Thank you for making this process so stress-free, I want to cry from happiness."</p>
+        </div>
+
+        <div class="testimonial">
+            <img src="https://rates4u.co.za/wp-content/uploads/2024/07/333518784_1620075241767349_4622958346578111406_n-1024x1024.jpg" alt="Joelyn">
+            <h3>Joelyn Mhlanga Inospace</h3>
+            <h4>Executive</h4>
+            <div class="stars">⭐⭐⭐✩✩</div>
+            <p>"I just wanted to say a huge THANK YOU to Rates4u for assisting with the fast-tracking of the opening of municipal accounts. Your help is much appreciated."</p>
+        </div>
+    </div>
+
+    <div class="contact-us-today">
+        <img src="https://rates4u.co.za/wp-content/uploads/2024/07/243754891_4585755688134789_296928409968689606_n.png" alt="Lightbulb">
+        <div class="form-container">
+            <h2>Contact <strong>US</strong> Today</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="E-Mail" required>
+                <input type="url" name="website" placeholder="Website">    
+                <textarea placeholder="Message"></textarea>
+                <button>SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="news-section">
+        <h2>Recent NEWS</h2>
+
+        <div class="news-articles">
+            <div class="news-article">
+                <img src="https://rates4u.co.za/wp-content/uploads/2018/04/11134026_898181990225529_4540050459389464956_o-1024x576.jpg" alt="Top 5 Common Mistakes Homeowners Make">
+                <div class="news-article-content">
+                    <p class="news-article-date">April 11, 2018 | rates4u_admin</p>
+                    <p class="news-article-description">Don’t let the awesome feeling of a new house be spoiled by rate issues!</p>
+                    <p class="news-article-title"><a href="Rate4U1.html">Top 5 Common Mistakes Homeowners Make with Municipal...</a></p>
+                </div>
+            </div>
+            <div class="news-article">
+                <img src="https://rates4u.co.za/wp-content/uploads/2018/04/219134991_4364763133567380_5556594785383183696_n-530x397.png" alt=" The Benefits of Converting to Prepaid Electricity">
+                <div class="news-article-content">
+                    <p class="news-article-date ">April 11, 2018 | rates4u_admin</p>
+                    <p class="news-article-title"><a href="Rate4U2.html">The Benefits of Converting to Prepaid Electricity: A Guide for...</a></p>
+                    <p class="news-article-description">Thank you Joe for another successful installation!</p>
+                </div>
+            </div>
+            <div class="news-article">
+                <img src="https://rates4u.co.za/wp-content/uploads/2018/04/145019708_3889220454454986_3425083458212351357_n.jpg" alt="Understanding Municipal Account Categories">
+                <div class="news-article-content">
+                    <p class="news-article-date">April 11, 2018 | rates4u_admin</p>
+                    <p class="news-article-title"><a href="Rate4U3.html">Understanding Municipal Account Categories: A Guide for Property...</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-logo">Rates4U</div>
+        <div class="footer-description">As Rates4U looks to the future, the company remains committed to its mission of providing comprehensive and efficient municipal account management solutions to its clients in Johannesburg</div>
+        <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>Address: Randpark Ridge, Johannesburg, South Africa</p>
+            <a href="mailto:info@rates4u.co.za">Email: info@rates4u.co.za</a>
+            <p>Phone: +27 ( 82) 703 5044</p>
+        </div>
+
+        <div class="footer-section footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Keep me up to date with content, updates, and offers from Rates4U.</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+
+        <div class="footer-social-icons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt="facebook">
+            <img src="data:image/png;base64,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" alt="instagram">
+            <img src="data:image/png;base64,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" alt="Twitter">
+            <img src="data:image/png;base64,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" alt="Linkedin">
+            </div>
+
+        <div class="footer-bottom">&copy; 2024 Rates4U. All rights reserved.</div>
+    </div>
+</body>
+
+</html>
